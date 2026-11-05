@@ -1,0 +1,441 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 188px;
+  gap: 56px;
+  max-width: calc(var(--content-width) + 244px);
+}
+
+.article {
+  min-width: 0;
+}
+
+/* Header -------------------------------------------------------------------- */
+
+.header {
+  padding-bottom: 8px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.categoryLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 9px 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    border-color var(--duration) var(--ease),
+    color var(--duration) var(--ease);
+}
+
+.categoryLink:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.title {
+  margin: 18px 0 0;
+  color: var(--text);
+  font-size: clamp(26px, 3.6vw, 36px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+
+.summary {
+  max-width: 680px;
+  margin: 12px 0 0;
+  color: var(--text-secondary);
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 28px 0 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.facts > div {
+  padding: 14px 16px 14px 0;
+}
+
+.facts > div + div {
+  padding-left: 16px;
+  border-left: 1px solid var(--border);
+}
+
+.facts dt {
+  color: var(--text-tertiary);
+  font-size: 12px;
+}
+
+.facts dd {
+  margin: 4px 0 0;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.notices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+/* Content ------------------------------------------------------------------- */
+
+.prose {
+  max-width: 700px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.prose p {
+  margin: 0;
+}
+
+.prose p + p {
+  margin-top: 12px;
+}
+
+.muted {
+  margin: 0;
+  color: var(--text-tertiary);
+  font-size: 14px;
+}
+
+.requirements {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.requirements > div {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 16px;
+  padding: 13px 18px;
+}
+
+.requirements > div + div {
+  border-top: 1px solid var(--border);
+}
+
+.requirements dt {
+  color: var(--text-tertiary);
+  font-size: 13.5px;
+}
+
+.requirements dd {
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.classification {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+
+.classification span:last-child {
+  color: var(--text-secondary);
+}
+
+.admin {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin svg {
+  color: var(--text-tertiary);
+}
+
+.modules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.modules code,
+.paramType {
+  padding: 2px 7px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--code-bg);
+  color: var(--text-secondary);
+  font-size: 12.5px;
+}
+
+.permissions {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.permissions li + li {
+  margin-top: 3px;
+}
+
+/* Parameters table ---------------------------------------------------------- */
+
+.tableWrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-tertiary);
+  font-size: 12.5px;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 12px 16px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  vertical-align: top;
+}
+
+.table tr + tr td {
+  border-top: 1px solid var(--border);
+}
+
+.table td:first-child {
+  white-space: nowrap;
+}
+
+.paramName {
+  color: var(--tok-parameter);
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.required {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 6px;
+  border: 1px solid var(--accent-soft);
+  border-radius: 4px;
+  background: var(--accent-soft);
+  color: var(--accent-fg);
+  font-size: 11px;
+  font-weight: 500;
+  vertical-align: 1px;
+}
+
+.none {
+  color: var(--text-tertiary);
+}
+
+/* Examples ------------------------------------------------------------------ */
+
+.examples {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.exampleTitle {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.exampleText {
+  margin: -2px 0 10px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Pager --------------------------------------------------------------------- */
+
+.pager {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 56px;
+}
+
+.pagerLink {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease);
+}
+
+.pagerLink:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+.pagerNext {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.pagerLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-tertiary);
+  font-size: 12.5px;
+}
+
+.pagerName {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Right rail ---------------------------------------------------------------- */
+
+.rail {
+  min-width: 0;
+}
+
+.railInner {
+  position: sticky;
+  top: calc(var(--header-height) + 48px);
+}
+
+/* Responsive ---------------------------------------------------------------- */
+
+@media (max-width: 1279px) {
+  .layout {
+    display: block;
+    max-width: var(--content-width);
+  }
+
+  .rail {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .facts > div:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .facts > div:nth-child(n + 3) {
+    border-top: 1px solid var(--border);
+  }
+
+  .requirements > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+
+  /* Parameters become stacked cards. */
+  .table thead {
+    display: none;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+  }
+
+  .table tr {
+    padding: 12px 16px;
+  }
+
+  .table tr + tr {
+    border-top: 1px solid var(--border);
+  }
+
+  .table td,
+  .table tr + tr td {
+    padding: 2px 0;
+    border: 0;
+  }
+
+  .table td:not(:first-child)::before {
+    content: attr(data-label) ': ';
+    color: var(--text-tertiary);
+  }
+
+  .table td:last-child {
+    margin-top: 6px;
+  }
+
+  .table td:last-child::before {
+    content: none;
+  }
+
+  .actions > * {
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .pager {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pagerNext {
+    align-items: flex-start;
+    text-align: left;
+  }
+}

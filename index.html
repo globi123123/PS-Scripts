@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="PS-Scripts is a personal library of PowerShell scripts for Windows Updates, drivers, VPN and system diagnostics."
+    />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#1c1b19" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>PS-Scripts · PowerShell Script Library</title>
+
+    <!--
+      Apply the saved theme before the first paint so the page never flashes
+      in the wrong theme. Dark is the default. Keep the storage key and the
+      colours in sync with src/lib/theme.ts and src/styles/tokens.css.
+    -->
+    <script>
+      (function () {
+        var theme = 'dark';
+        try {
+          var saved = window.localStorage.getItem('ps-scripts:theme');
+          if (saved === 'light' || saved === 'dark') theme = saved;
+        } catch (e) {}
+        var root = document.documentElement;
+        root.setAttribute('data-theme', theme);
+        root.style.colorScheme = theme;
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', theme === 'light' ? '#faf9f5' : '#1c1b19');
+      })();
+    </script>
+    <style>
+      html[data-theme='dark'] { background: #1c1b19; }
+      html[data-theme='light'] { background: #faf9f5; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="font-family: system-ui, sans-serif; padding: 24px; color: #a8a49b">
+        PS-Scripts needs JavaScript to display the script library.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

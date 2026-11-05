@@ -1,0 +1,36 @@
+.browser {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.resultsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 30px;
+  margin-top: 8px;
+}
+
+.count {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.query {
+  color: var(--text);
+  font-weight: 500;
+}

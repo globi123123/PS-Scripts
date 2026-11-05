@@ -1,0 +1,214 @@
+.block {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--code-bg);
+  overflow: hidden;
+}
+
+/* Header ------------------------------------------------------------------ */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  padding: 6px 8px 6px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--code-header-bg);
+}
+
+.file {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: var(--text-tertiary);
+}
+
+.fileName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.meta {
+  font-size: 12.5px;
+  white-space: nowrap;
+  color: var(--text-tertiary);
+}
+
+.meta::before {
+  content: '·';
+  margin-right: 8px;
+}
+
+.actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+/* Code -------------------------------------------------------------------- */
+
+.body {
+  position: relative;
+}
+
+.pre {
+  margin: 0;
+  padding: 16px 20px;
+  overflow-x: auto;
+  color: var(--code-fg);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  tab-size: 4;
+  font-variant-ligatures: none;
+}
+
+.pre:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: -2px;
+  border-radius: var(--radius);
+}
+
+.pre code {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  font: inherit;
+}
+
+.line {
+  display: block;
+  min-height: 1.7em;
+}
+
+.withCopy {
+  padding-right: 52px;
+}
+
+.floatingCopy {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  background: var(--code-bg);
+  opacity: 0;
+}
+
+.body:hover .floatingCopy,
+.floatingCopy:focus-visible,
+.floatingCopy[data-state='copied'],
+.floatingCopy[data-state='failed'] {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .floatingCopy {
+    opacity: 1;
+  }
+}
+
+/* Line numbers: CSS counters are not part of the selection, so copying a
+   selection never includes them. */
+.numbered {
+  padding-left: 0;
+  counter-reset: line;
+}
+
+.numbered .line::before {
+  counter-increment: line;
+  content: counter(line);
+  position: sticky;
+  left: 0;
+  display: inline-block;
+  width: var(--gutter, 2ch);
+  padding: 0 16px 0 18px;
+  margin-right: 4px;
+  box-sizing: content-box;
+  background: var(--code-bg);
+  color: var(--code-line-number);
+  text-align: right;
+  user-select: none;
+}
+
+/* Tokens ------------------------------------------------------------------ */
+
+.comment {
+  color: var(--tok-comment);
+}
+
+.doc {
+  color: var(--tok-doc);
+  font-weight: 600;
+}
+
+.keyword {
+  color: var(--tok-keyword);
+}
+
+.string {
+  color: var(--tok-string);
+}
+
+.escape {
+  color: var(--tok-escape);
+}
+
+.variable {
+  color: var(--tok-variable);
+}
+
+.constant {
+  color: var(--tok-constant);
+}
+
+.cmdlet {
+  color: var(--tok-cmdlet);
+}
+
+.parameter {
+  color: var(--tok-parameter);
+}
+
+.operator {
+  color: var(--tok-operator);
+}
+
+.type {
+  color: var(--tok-type);
+}
+
+.number {
+  color: var(--tok-number);
+}
+
+.member,
+.property {
+  color: var(--tok-member);
+}
+
+.method {
+  color: var(--tok-method);
+}
+
+.punctuation {
+  color: var(--tok-punctuation);
+}
+
+@media (max-width: 560px) {
+  .meta {
+    display: none;
+  }
+
+  .pre {
+    font-size: 12.5px;
+  }
+}

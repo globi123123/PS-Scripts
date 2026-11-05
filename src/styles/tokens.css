@@ -1,0 +1,150 @@
+/*
+ * Design tokens.
+ * Dark is the default theme (warm charcoal), light is a soft off-white.
+ * The active theme is set as data-theme on <html> by the inline script in
+ * index.html, before the first paint.
+ */
+
+:root {
+  --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, Consolas,
+    monospace;
+
+  --header-height: 60px;
+  --sidebar-width: 272px;
+  --shell-width: 1440px;
+  --content-width: 920px;
+
+  --radius-sm: 7px;
+  --radius: 10px;
+  --radius-lg: 14px;
+
+  --duration: 150ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Dark ---------------------------------------------------------------------- */
+
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #1c1b19;
+  --surface: #222120;
+  --surface-hover: #292826;
+  --surface-active: #2f2e2b;
+  --border: #302e2b;
+  --border-strong: #423f3a;
+
+  --text: #eceae5;
+  --text-secondary: #b4b0a7;
+  --text-tertiary: #8b877f;
+
+  --accent: #d97757;
+  --accent-fg: #e9997b;
+  --accent-soft: rgba(217, 119, 87, 0.16);
+  --on-accent: #1c1b19;
+  --focus-ring: rgba(233, 153, 123, 0.7);
+
+  --ro-fg: #93c49c;
+  --ro-bg: rgba(122, 178, 132, 0.1);
+  --ro-border: rgba(122, 178, 132, 0.28);
+  --ro-solid: #7fb489;
+
+  --sc-fg: #e9b86a;
+  --sc-bg: rgba(226, 168, 80, 0.1);
+  --sc-border: rgba(226, 168, 80, 0.3);
+  --sc-solid: #e0a64f;
+
+  --btn-primary-bg: #eceae5;
+  --btn-primary-fg: #1c1b19;
+  --btn-primary-hover: #ffffff;
+
+  --overlay: rgba(12, 11, 10, 0.6);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.45);
+  --mark-bg: rgba(217, 119, 87, 0.3);
+
+  /* Code */
+  --code-bg: #171614;
+  --code-header-bg: #1b1a18;
+  --code-fg: #e4e1da;
+  --code-line-number: #5f5b54;
+  --tok-comment: #8d887e;
+  --tok-doc: #bab3a5;
+  --tok-keyword: #e3906f;
+  --tok-string: #a9c78c;
+  --tok-escape: #e8a671;
+  --tok-variable: #8fc1e3;
+  --tok-constant: #e8a671;
+  --tok-cmdlet: #e9c784;
+  --tok-parameter: #bba9e2;
+  --tok-operator: #e3906f;
+  --tok-type: #7ec7b9;
+  --tok-number: #e8a671;
+  --tok-member: #d8d4cb;
+  --tok-method: #e9c784;
+  --tok-punctuation: #9b968c;
+}
+
+/* Light --------------------------------------------------------------------- */
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #faf9f5;
+  --surface: #ffffff;
+  --surface-hover: #f5f3ee;
+  --surface-active: #efece5;
+  --border: #e6e2d9;
+  --border-strong: #d3cec3;
+
+  --text: #1f1e1c;
+  --text-secondary: #55524b;
+  --text-tertiary: #75716a;
+
+  --accent: #c96442;
+  --accent-fg: #b0512f;
+  --accent-soft: rgba(201, 100, 66, 0.11);
+  --on-accent: #ffffff;
+  --focus-ring: rgba(201, 100, 66, 0.6);
+
+  --ro-fg: #3b7145;
+  --ro-bg: #edf4ec;
+  --ro-border: #cde0cc;
+  --ro-solid: #5a9465;
+
+  --sc-fg: #8c5a10;
+  --sc-bg: #fbf2e0;
+  --sc-border: #ecd5a6;
+  --sc-solid: #cf8f2b;
+
+  --btn-primary-bg: #1f1e1c;
+  --btn-primary-fg: #faf9f5;
+  --btn-primary-hover: #3a3834;
+
+  --overlay: rgba(31, 30, 28, 0.32);
+  --shadow-lg: 0 16px 40px rgba(31, 30, 28, 0.14);
+  --mark-bg: rgba(201, 100, 66, 0.2);
+
+  /* Code */
+  --code-bg: #f5f3ed;
+  --code-header-bg: #efece5;
+  --code-fg: #2b2925;
+  --code-line-number: #a8a397;
+  --tok-comment: #716b60;
+  --tok-doc: #57514a;
+  --tok-keyword: #b0472a;
+  --tok-string: #3d7a2b;
+  --tok-escape: #ad5a12;
+  --tok-variable: #1f63a3;
+  --tok-constant: #ad5a12;
+  --tok-cmdlet: #8a5900;
+  --tok-parameter: #6844ad;
+  --tok-operator: #b0472a;
+  --tok-type: #0f7466;
+  --tok-number: #ad5a12;
+  --tok-member: #3b3833;
+  --tok-method: #8a5900;
+  --tok-punctuation: #7c766b;
+}

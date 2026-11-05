@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>PS-Scripts</title>
+    <script>
+      // GitHub Pages serves this file for every path it cannot find.
+      // The app uses hash-based routing (#/scripts/...), so a "clean" URL like
+      //   /PS-Scripts/scripts/get-pendingreboot
+      // is rewritten to
+      //   /PS-Scripts/#/scripts/get-pendingreboot
+      // On *.github.io the first path segment is the repository name.
+      // On a custom domain the site is served from the root.
+      (function () {
+        var l = window.location;
+        var segments = l.pathname.split('/').filter(Boolean);
+        var base = '/';
+        if (/\.github\.io$/i.test(l.hostname) && segments.length > 0) {
+          base = '/' + segments.shift() + '/';
+        }
+        var route = segments.join('/').replace(/\/?index\.html$/i, '');
+        // Nothing to rewrite: stay on this page instead of redirecting in a loop.
+        if (!route) {
+          window.__psScriptsBase = base;
+          return;
+        }
+        document.documentElement.style.visibility = 'hidden';
+        l.replace(base + '#/' + route + l.search);
+      })();
+    </script>
+    <style>
+      html { background: #1c1b19; color: #a8a49b; font-family: system-ui, sans-serif; }
+    </style>
+  </head>
+  <body>
+    <p style="padding: 24px">
+      Page not found. <a id="home" href="/" style="color: inherit">Go to PS-Scripts</a>
+    </p>
+    <script>
+      if (window.__psScriptsBase) document.getElementById('home').setAttribute('href', window.__psScriptsBase);
+    </script>
+  </body>
+</html>

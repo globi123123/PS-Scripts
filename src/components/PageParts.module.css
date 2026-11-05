@@ -1,0 +1,264 @@
+/* Page header --------------------------------------------------------------- */
+
+.pageHeader {
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+.title {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(28px, 3.4vw, 34px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.022em;
+  overflow-wrap: anywhere;
+}
+
+.description {
+  max-width: 680px;
+  margin: 12px 0 0;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Section ------------------------------------------------------------------- */
+
+.section {
+  margin-top: 56px;
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  margin: 0;
+  color: var(--text);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+}
+
+/* Breadcrumbs --------------------------------------------------------------- */
+
+.breadcrumbs {
+  margin-bottom: 24px;
+  font-size: 13px;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.breadcrumbs a {
+  color: var(--text-tertiary);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: var(--text);
+}
+
+.breadcrumbs [aria-current='page'] {
+  overflow: hidden;
+  color: var(--text-secondary);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.separator {
+  color: var(--text-tertiary);
+  opacity: 0.7;
+}
+
+/* Callout ------------------------------------------------------------------- */
+
+.callout {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.neutral {
+  border-style: dashed;
+  border-color: var(--border-strong);
+  background: transparent;
+}
+
+.caution {
+  border-color: var(--sc-border);
+  background: var(--sc-bg);
+}
+
+.calloutIcon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--text-secondary);
+}
+
+.caution .calloutIcon {
+  color: var(--sc-fg);
+}
+
+.calloutBody {
+  min-width: 0;
+}
+
+.calloutTitle {
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.calloutText {
+  margin-top: 4px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.calloutText p {
+  margin: 0;
+}
+
+.calloutText ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+
+.calloutText li + li {
+  margin-top: 2px;
+}
+
+/* Empty state --------------------------------------------------------------- */
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.emptyIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text-tertiary);
+}
+
+.emptyTitle {
+  margin: 0;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.emptyText {
+  max-width: 420px;
+  margin: 6px 0 18px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* On this page -------------------------------------------------------------- */
+
+.toc {
+  font-size: 13px;
+}
+
+.tocTitle {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.toc ul {
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--border);
+  list-style: none;
+}
+
+.tocLink {
+  display: block;
+  width: 100%;
+  margin-left: -1px;
+  padding: 5px 0 5px 13px;
+  border: 0;
+  border-left: 1px solid transparent;
+  background: none;
+  color: var(--text-tertiary);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--duration) var(--ease);
+}
+
+.tocLink:hover {
+  color: var(--text);
+}
+
+.tocLink[aria-current='true'] {
+  border-left-color: var(--accent);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.tocTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-tertiary);
+  font: inherit;
+  cursor: pointer;
+}
+
+.tocTop:hover {
+  color: var(--text);
+}

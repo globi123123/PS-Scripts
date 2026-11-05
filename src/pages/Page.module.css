@@ -1,0 +1,91 @@
+/* Shared styles for simple pages. */
+
+.page {
+  max-width: var(--content-width);
+}
+
+.categoryEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-fg);
+  font-weight: 500;
+}
+
+.headerMeta {
+  margin: 14px 0 0;
+  color: var(--text-tertiary);
+  font-size: 13.5px;
+}
+
+.otherCategories {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.otherLabel {
+  margin-right: 6px;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+.otherLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  text-decoration: none;
+  transition:
+    border-color var(--duration) var(--ease),
+    color var(--duration) var(--ease);
+}
+
+.otherLink:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+/* Not found ------------------------------------------------------------- */
+
+.notFound {
+  max-width: 520px;
+  padding: 48px 0;
+}
+
+.notFoundCode {
+  margin: 0;
+  color: var(--accent-fg);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.notFoundTitle {
+  margin: 8px 0 0;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.notFoundText {
+  margin: 12px 0 0;
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+.notFoundActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}

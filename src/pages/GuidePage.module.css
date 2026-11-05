@@ -1,0 +1,136 @@
+.page {
+  max-width: 760px;
+}
+
+.text {
+  margin: 0 0 14px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Steps ----------------------------------------------------------------- */
+
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 16px;
+  padding-bottom: 28px;
+}
+
+.step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: 34px;
+  bottom: 6px;
+  left: 13.5px;
+  width: 1px;
+  background: var(--border);
+}
+
+.stepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.stepBody {
+  min-width: 0;
+  padding-top: 3px;
+}
+
+.stepTitle {
+  margin: 0 0 4px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.stepBody .text {
+  margin-bottom: 12px;
+}
+
+/* Definitions ----------------------------------------------------------- */
+
+.definitions {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.definitions > div {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 16px;
+  padding: 16px 18px;
+}
+
+.definitions > div + div {
+  border-top: 1px solid var(--border);
+}
+
+.definitions dt {
+  padding-top: 1px;
+}
+
+.definitions dd {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+.definitions a {
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.definitions a:hover {
+  text-decoration-color: var(--accent);
+}
+
+.implemented {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 9px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-active);
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .definitions > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+}
