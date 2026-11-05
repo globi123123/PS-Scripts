@@ -438,6 +438,73 @@ export const scriptDefinitions: ScriptDefinition[] = [
   // System
   // ---------------------------------------------------------------------------
   {
+    name: 'Get-SystemDiagnostics',
+    category: 'system',
+    classification: 'read-only',
+    status: 'implemented',
+    summary: 'One compact health check: uptime and reboots, updates, hardware, storage, network, security, event log, devices and services.',
+    description: [
+      'Runs a quick diagnosis of the whole computer and prints a compact report with one block per section, framed by a line above and below. Every check that needs attention is marked WARN or FAIL and listed again in the summary at the end, so problems are visible at a glance.',
+      'Sections can be selected or skipped, -ProblemsOnly hides everything that is fine and -AsObject returns one object per check for Where-Object, Export-Csv or Out-GridView. The script has no dependencies, needs no administrator rights and can also run directly from GitHub without saving a file.',
+    ],
+    keywords: [
+      'diagnostics', 'health check', 'general', 'overview', 'report', 'uptime', 'last boot', 'last reboot',
+      'updates', 'disk space', 'memory', 'defender', 'firewall', 'bitlocker', 'event log', 'blue screen', 'troubleshooting',
+    ],
+    powershell: ['5.1', '7.x'],
+    requirements: {
+      os: 'Windows 10, Windows 11, Windows Server 2016 or later',
+      admin: false,
+      permissions: [
+        'Runs as a standard user',
+        'In an elevated session the BitLocker details and the TPM state are added',
+        'The internet check opens one HTTPS connection to www.msftconnecttest.com (skip it with -SkipInternetCheck)',
+      ],
+    },
+    parameters: [
+      { name: 'Section', type: 'string[]', description: 'Only run these sections: System, Uptime, Updates, Hardware, Storage, Network, Security, Events, Devices, Services. Also accepted as first positional argument.' },
+      { name: 'ExcludeSection', type: 'string[]', description: 'Skip these sections.' },
+      { name: 'ProblemsOnly', type: 'switch', description: 'Only show checks marked WARN or FAIL.' },
+      { name: 'Days', type: 'int', default: '7', description: 'Look-back period for the event log, unexpected shutdowns and failed updates.' },
+      { name: 'UpdateCount', type: 'int', default: '5', description: 'Number of recently installed updates to list.' },
+      { name: 'IncludePendingUpdates', type: 'switch', description: 'Also count pending updates from the local update cache (takes a few seconds).' },
+      { name: 'SkipInternetCheck', type: 'switch', description: 'Do not test the internet connection.' },
+      { name: 'UptimeWarningDays', type: 'int', default: '14', description: 'Uptime in days from which a restart is recommended.' },
+      { name: 'DiskWarningPercent', type: 'int', default: '90', description: 'Used space in percent from which a drive is marked.' },
+      { name: 'Width', type: 'int', default: '76', description: 'Width of the report in characters. Gets narrower automatically in small console windows.' },
+      { name: 'NoColor', type: 'switch', description: 'Plain text to the output stream, for files, tickets or Set-Clipboard.' },
+      { name: 'AsObject', type: 'switch', description: 'Return one object per check (Section, Check, Value, Status) instead of the report.' },
+    ],
+    examples: [
+      {
+        title: 'Full report',
+        code: '.\\Get-SystemDiagnostics.ps1',
+      },
+      {
+        title: 'Only uptime and updates',
+        code: '.\\Get-SystemDiagnostics.ps1 Uptime, Updates',
+      },
+      {
+        title: 'Only what needs attention',
+        code: '.\\Get-SystemDiagnostics.ps1 -ProblemsOnly',
+      },
+      {
+        title: 'Filter the results as objects',
+        code: ".\\Get-SystemDiagnostics.ps1 -AsObject | Where-Object Status -ne 'OK' | Format-Table",
+      },
+      {
+        title: 'Copy the plain report, for example into a ticket',
+        code: '.\\Get-SystemDiagnostics.ps1 -NoColor | Set-Clipboard',
+      },
+      {
+        title: 'Run it directly from GitHub without saving a file',
+        description: 'The code is loaded into memory, so the execution policy does not block it.',
+        code: "$url = 'https://raw.githubusercontent.com/globi123123/PS-Scripts/main/scripts/system/Get-SystemDiagnostics.ps1'\n& ([scriptblock]::Create((Invoke-RestMethod $url)))",
+      },
+    ],
+    added: '2026-11-05',
+  },
+  {
     name: 'Get-SystemUptime',
     category: 'system',
     classification: 'read-only',
